@@ -1,0 +1,9 @@
+{
+  "internationalization": {
+    "title": "Русская версия"
+  },
+  "error404": {
+    "subtitle": "Page Not Found",
+    "btntitle": "Take me out of here"
+  }
+}

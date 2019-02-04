@@ -1,0 +1,9 @@
+{
+  "internationalization": {
+    "title": "Switch to English"
+  },
+  "error404": {
+    "subtitle": "Страница не найдена",
+    "btntitle": "Вернуться на главную"
+  }
+}
