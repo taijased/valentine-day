@@ -1,17 +1,16 @@
 <template lang="pug">
   .landing
-    h1 Digital валентинка
+    h1 {{$t("landing.title")}}
     .landing__description
-      div Создай свою уникальную валентинку ко дню<br/>всех влюбленных и поздравь своего валентина
+      div {{$t("landing.subtitle")}}
       br
       br
-      div Кастомизируй
-      div Добавь уникальный текст
-      div Добавь уникальный текст
-      div Добавь музыку
-      div Можешь анонимно
+      div {{$t("landing.desc.custom")}}
+      div {{$t("landing.desc.text")}}
+      div {{$t("landing.desc.music")}}
+      div {{$t("landing.desc.anony")}}
 
-    .btn-primary(@click="$router.push('/create-valentine')") {{$t("internationalization.title")}}
+    .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
 
 </template>
 <script>
@@ -35,8 +34,8 @@ export default {
   overflow: hidden;
   color: white;
   margin-left: 8%;
-  -webkit-animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in-left .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-left .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
   h1 {
     font-family: TT Norms Medium;

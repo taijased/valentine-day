@@ -7,7 +7,7 @@
       transition(name="fade", mode="out-in")
         router-view
     footer(v-if="heartPosition")
-      div ВКонтакте
+      div  {{$t("footer.vk")}}
 </template>
 <script>
 import AppHeader from '../components/Header';
@@ -83,7 +83,7 @@ export default {
   }
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity .2s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;

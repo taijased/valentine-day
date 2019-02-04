@@ -2,6 +2,20 @@
   "internationalization": {
     "title": "Русская версия"
   },
+  "landing": {
+    "title": "Digital valentine",
+    "subtitle": "Create your unique valentine for the day of all lovers and congratulate your valentine",
+    "btn": "Create",
+    "desc": {
+      "custom": "Customize",
+      "text": "Add unique text",
+      "music": "Add music",
+      "anony": "Can you anonymously"
+    }
+  },
+  "footer": {
+    "vk": "VK"
+  },
   "error404": {
     "subtitle": "Page Not Found",
     "btntitle": "Take me out of here"
