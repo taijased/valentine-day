@@ -11,6 +11,7 @@
       div {{$t("landing.desc.anony")}}
 
     .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
+    //- .footer {{$t("footer.vk")}}
 
 </template>
 <script>
@@ -26,7 +27,7 @@ export default {
 .landing {
   margin-top: -50px;
   width: 500px;
-  height: 423px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,8 +35,8 @@ export default {
   overflow: hidden;
   color: white;
   margin-left: 8%;
-  -webkit-animation: fade-in-left .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in-left .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
   h1 {
     font-family: TT Norms Medium;
@@ -80,30 +81,45 @@ export default {
     }
   }
 }
-
+.footer {
+  bottom: 5%;
+  left: 0;
+  align-items: flex-start;
+  -webkit-animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  font-family: TT Norms Regular;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  font-size: 18px;
+  letter-spacing: -0.75px;
+  color: #fff;
+  margin-left: 8%;
+  margin-top: -45px;
+  }
 @-webkit-keyframes fade-in-left {
   0% {
     -webkit-transform: translateX(-500px);
-            transform: translateX(-500px);
+    transform: translateX(-500px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes fade-in-left {
   0% {
     -webkit-transform: translateX(-500px);
-            transform: translateX(-500px);
+    transform: translateX(-500px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
-
 </style>
