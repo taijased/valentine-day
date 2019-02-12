@@ -20,6 +20,9 @@ export default {
     setLocalization() {
       this.$i18n.locale = this.$i18n.locale === "ru" ? "en" : "ru";
     }
+  },
+  created () {
+    this.$i18n.locale = "ru";
   }
 };
 </script>

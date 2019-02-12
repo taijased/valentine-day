@@ -125,7 +125,6 @@ export default {
               ValentineService.createValentine(data)
                 .then(response => {
                   if (response.data.success) {
-                    // window.open(response.data.pay_url);
                     window.location.href = response.data.pay_url;
                   } else {
                     reject(response)
