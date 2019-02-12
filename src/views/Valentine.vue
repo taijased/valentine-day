@@ -1,7 +1,7 @@
 
 <template lang="pug">
   .about-valentine(@click="toggleFullScreen()")
-    canvas(id="heart_for_love", class="heartbeat")
+    canvas(id="heart_for_love", width="100%", height="100%")
     .description(v-if="data")
       .fromWhom {{data.from}}
       .text {{data.text}}
@@ -88,12 +88,12 @@ export default {
   background-color: rgba(0, 0, 0, 1);
   canvas {
     position: absolute;
+    width: 100%;
     background-color: rgba(0, 0, 0, 1);
     z-index: 10;
-    @media @xs {
-      width: 320px;
-      height: 320px
-    }
+    // @media @xs {
+    //   transform: scale(0.6);
+    // }
   }
   
 }
