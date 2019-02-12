@@ -25,7 +25,7 @@
 <script>
 import AppHeader from "../components/Header";
 import Iphone from "../components/Iphone";
-import Api from "../api/Api.js";
+import ValentineService from "../api/ValentineService.js";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
@@ -90,10 +90,10 @@ export default {
     return {
       dialogFormVisible: true,
       ruleForm: {
-        forWhom: "",
-        fromWhom: "",
-        email: "",
-        message: "",
+        forWhom: "Oksana",
+        fromWhom: "Valentine",
+        email: "solo@ya.ru",
+        message: "Please mene zaebal CORS request",
         checkbox: false
       },
       rules: {
@@ -114,21 +114,30 @@ export default {
     submitForm() {
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
-           new Promise((resolve, reject) => {
-            const data = {
-              form: this.ruleForm.fromWhom,
-              to: this.ruleForm.forWhom,
-              text: this.ruleForm.email,
-              email: this.ruleForm.message,
-            }
-            Api.post('api.love.tim.agency/dvc', data)
-              .then(response => {
-                console.log(response);
-                resolve(response)
-              })
-              .catch(reject)
-          })
-          console.log("valid");
+          try {
+            new Promise((resolve, reject) => {
+              const data = {
+                from: this.ruleForm.fromWhom,
+                to: this.ruleForm.forWhom,
+                text: this.ruleForm.email,
+                email: this.ruleForm.message,
+              }
+              ValentineService.createValentine(data)
+                .then(response => {
+                  if (response.data.success) {
+                    // window.open(response.data.pay_url);
+                    window.location.href = response.data.pay_url;
+                  } else {
+                    reject(response)
+                  }
+                  resolve(response)
+                })
+                .catch(reject)
+            })
+          } catch (error) {
+            return false
+          }
+          
         } else {
           return false;
         }

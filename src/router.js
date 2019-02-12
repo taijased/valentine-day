@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 const Landing = () => import('./views/Landing.vue')
 const CreateValentine = () => import('./views/CreateValentine.vue')
-const About = () => import('./views/About.vue')
+const Valentine = () => import('./views/Valentine.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -25,9 +25,9 @@ export default new Router({
       ]
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/valentine/:id',
+      name: 'valentine',
+      component: Valentine
     },
     { 
       path: "*", 

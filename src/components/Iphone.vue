@@ -54,29 +54,42 @@ export default {
     overflow-y: auto;
     font-size: 26px;
     .description {
-        width: 100%;
+      position: absolute;
+      height: 100%;
+      z-index: 100;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
       .fromWhom {
         text-align: left;
         margin: 0 25px;
         margin-bottom: 15px;
+        font-size: 32px;
       }
       .text {
         font-family: TT Norms Regular;
-        font-size: 18px;
+        font-size: 28px;
         margin: 0 25px;
-        line-height: 21px;
+        // line-height: 21px;
+        min-height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .forWhom {
         text-align: right;
         margin: 0 25px;
         margin-top: 10px;
+        font-size: 32px;
       }
     }
   }
 }
 canvas {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 400%;
+  // margin-left: auto;
+  // margin-right: auto;
 }
 </style>
