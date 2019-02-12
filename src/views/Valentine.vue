@@ -55,6 +55,7 @@ export default {
           ValentineService.getValentine(this.$route.params.id)
             .then(response => {
               console.log(response.data);
+
               setTimeout(() => {
                 this.data = response.data.Card
               }, 4500);
@@ -62,7 +63,7 @@ export default {
             })
             .catch(error => {
               this.$router.push("/error404");
-              console.log('error: ' + error);
+              // console.log('error: ' + error);
             });
         });
       } else {
