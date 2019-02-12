@@ -50,15 +50,19 @@ export default {
         this.toggleFullScreen();
       }, 1500);
       if (this.$route.params.id) {
-        Heart.runHeart("heart_for_love");
         new Promise((resolve, reject) => {
           ValentineService.getValentine(this.$route.params.id)
             .then(response => {
               console.log(response.data);
-
-              setTimeout(() => {
-                this.data = response.data.Card
-              }, 4500);
+              if (response.data.Card) {
+                Heart.runHeart("heart_for_love");
+                setTimeout(() => {
+                  this.data = response.data.Card
+                }, 4500);
+              } else {
+                this.$router.push("/error404");
+              }
+              
               resolve(response);
             })
             .catch(error => {
