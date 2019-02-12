@@ -3,9 +3,9 @@
   .about-valentine(@click="toggleFullScreen()")
     canvas(id="heart_for_love", width="100%", height="100%")
     .description(v-if="data")
-      .fromWhom {{data.from}}
-      .text {{data.text}}
-      .forWhom {{data.to}}
+      .fromWhom {{data.From}}
+      .text {{data.Text}}
+      .forWhom {{data.To}}
 </template>
 
 <script>
@@ -56,7 +56,7 @@ export default {
             .then(response => {
               console.log(response.data);
               setTimeout(() => {
-                this.data = response.data
+                this.data = response.data.Card
               }, 4500);
               resolve(response);
             })
