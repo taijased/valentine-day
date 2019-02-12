@@ -27,7 +27,6 @@ import AppHeader from "../components/Header";
 import Iphone from "../components/Iphone";
 import Api from "../api/Api.js";
 import { mapGetters, mapActions } from "vuex";
-import Api from '../api/Api.js';
 export default {
   data() {
     var validateFromWhom = (rule, value, callback) => {
@@ -59,20 +58,7 @@ export default {
         callback(new Error("Обязательное поле"));
       } else {
         if (value !== "" && value.length < 160) {
-          new Promise((resolve, reject) => {
-            const data = {
-              form: this.ruleForm.fromWhom,
-              to: this.ruleForm.forWhom,
-              text: this.ruleForm.email,
-              email: this.ruleForm.message,
-            }
-            Api.post('api.love.tim.agency/dvc', data)
-              .then(response => {
-                console.log(response);
-                resolve(response)
-              })
-              .catch(reject)
-          })
+          this.setText(value);
           callback();
         } else {
           callback(new Error("Слишком длинное Поздравление"));
@@ -128,6 +114,20 @@ export default {
     submitForm() {
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
+           new Promise((resolve, reject) => {
+            const data = {
+              form: this.ruleForm.fromWhom,
+              to: this.ruleForm.forWhom,
+              text: this.ruleForm.email,
+              email: this.ruleForm.message,
+            }
+            Api.post('api.love.tim.agency/dvc', data)
+              .then(response => {
+                console.log(response);
+                resolve(response)
+              })
+              .catch(reject)
+          })
           console.log("valid");
         } else {
           return false;

@@ -8,7 +8,7 @@
             .sensor
             .speaker
             .screen
-                //- canvas(id="heart")
+                canvas(id="heart")
                 .description
                     .fromWhom {{getFromWhom}}
                     .text {{getText}}
@@ -31,7 +31,7 @@ export default {
   },
   created() {
     this.$nextTick(() => {
-      Heart.runHeart();
+      Heart.runHeart('heart');
     });
   }
 };
@@ -75,12 +75,8 @@ export default {
   }
 }
 canvas {
-  //   position: absolute;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  //   left: 0;
-  //   right: 0;
-  //   z-index: 1;
 }
 </style>

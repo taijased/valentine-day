@@ -1,11 +1,11 @@
 <template lang="pug">
   .wrapper
-    canvas(id="heart", :class="{'heart-left': heartPosition}")
+    canvas(id="mainheart", :class="{'heart-left': heartPosition}")
     header(v-if="heartPosition")
       AppHeader
     main(v-if="heartPosition")
-      //- transition(name="fade", mode="out-in")
-      //-   router-view
+      transition(name="fade", mode="out-in")
+        router-view
 </template>
 <script>
 import AppHeader from "../components/Header";
@@ -19,9 +19,9 @@ export default {
   },
   created() {
     this.$nextTick(() => {
-      Heart.runHeart();
+      Heart.runHeart('mainheart');
       setTimeout(() => {
-      // this.heartPosition = true;
+        this.heartPosition = true;
       }, 3000);
     });
   },
@@ -69,7 +69,7 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-canvas {
+#mainheart {
   position: absolute;
   width: 100vw;
   height: 100vh;

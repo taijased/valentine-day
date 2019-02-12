@@ -1,5 +1,5 @@
 const Heart = {
-    runHeart() {
+    runHeart(id_canvas) {
         window.requestAnimationFrame =
             window.__requestAnimationFrame ||
             window.requestAnimationFrame ||
@@ -26,7 +26,7 @@ const Heart = {
             loaded = true;
             var mobile = window.isDevice;
             var koef = mobile ? 0.5 : 1;
-            var canvas = document.getElementById('heart');
+            var canvas = document.getElementById(id_canvas);
             var ctx = canvas.getContext('2d');
             var width = canvas.width = koef * innerWidth;
             var height = canvas.height = koef * innerHeight;
