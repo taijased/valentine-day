@@ -162,14 +162,17 @@ export default {
 .creator {
   width: 100%;
   padding: 0 8%;
-  height: 70%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background: #000;
   @media @xs {
+    margin-top: 250px;
     margin: 0;
     padding: 0;
+    height: auto;
+    overflow-y: auto;
   }
   .left-bar {
     height: 100%;
@@ -177,7 +180,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
+
     @media @xs {
       width: 100%;
       align-items: center;
@@ -217,8 +220,8 @@ export default {
     }
   }
   .qiwi {
+    margin-top: 25px;
     a {
-      margin-top: 25px;
       text-align: center;
       text-decoration: none;
       color: rgba(255, 255, 255, 0.6);

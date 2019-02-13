@@ -31,6 +31,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@xs: ~"(max-width: 576px)";
 
 .home {
   width: 100vw;
@@ -42,7 +43,7 @@ export default {
   height: 100vh;
   grid-template-rows: 15vh 85vh;
   grid-template-columns: 50vw 50vw;
-  overflow: hidden;
+  // overflow: hidden;
   background-color: rgba(0, 0, 0, 1);
   z-index: 10;
   header {
@@ -70,12 +71,16 @@ export default {
   opacity: 0;
 }
 #mainheart {
+
   position: absolute;
   width: 100vw;
   height: 100vh;
   left: 0;
   top: 0;
   z-index: -1;
+  @media @xs {
+    display: none;
+  }
 }
 .heart-left {
   transform: translate(25%, 0);
