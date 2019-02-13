@@ -18,7 +18,9 @@
             span(v-if="ruleForm.message !== '' && ruleForm.message.length !== 160") {{160 - ruleForm.message.length}}
         el-form-item(prop="checkbox")
           el-checkbox(v-model='ruleForm.checkbox', fill="#007f48", autocomplete="off", :label='$t("form.personalData")')
-      .btn-primary(@click="submitForm()") {{$t("landing.btn")}}
+      .btn-primary(@click="submitForm()", :class="{'disabled-btn': disabledBtn}") {{$t("landing.btn")}}
+      .qiwi 
+         a(href="https://qiwi.com/p/79655864752", target="_blank")  {{$t("form.support")}}
     .right-bar
      Iphone
 </template>
@@ -89,6 +91,7 @@ export default {
     };
     return {
       dialogFormVisible: true,
+      disabledBtn: false,
       ruleForm: {
         forWhom: "",
         fromWhom: "",
@@ -114,6 +117,7 @@ export default {
     submitForm() {
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
+          this.disabledBtn = true
           try {
             new Promise((resolve, reject) => {
               const data = {
@@ -125,8 +129,10 @@ export default {
               }
               ValentineService.createValentine(data)
                 .then(response => {
+                  console.log(response);
                   if (response.data.success) {
-                    window.location.href = response.data.pay_url;
+                    this.disabledBtn = false
+                    // window.location.href = response.data.pay_url;
                   } else {
                     reject(response)
                   }
@@ -209,6 +215,24 @@ export default {
       transition: color 0.3s, background 0.3s;
       cursor: pointer;
     }
+  }
+  .qiwi {
+    a {
+      margin-top: 25px;
+      text-align: center;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: TT Norms Regular;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 16px;
+      font-size: 20px;
+      &:hover {
+        color: white;
+        transition: color 0.3s;
+      }
+    }
+
   }
 }
 
@@ -372,5 +396,10 @@ export default {
   .el-input__icon {
     color: #9a0f20 !important;
   }
+}
+.disabled-btn {
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.7;
 }
 </style>
