@@ -121,6 +121,7 @@ export default {
                 to: this.ruleForm.forWhom,
                 text: this.ruleForm.email,
                 email: this.ruleForm.message,
+                сonsent: true
               }
               ValentineService.createValentine(data)
                 .then(response => {
