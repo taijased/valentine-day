@@ -1,7 +1,7 @@
 
 <template lang="pug">
   .about-valentine(@click="toggleFullScreen()")
-    canvas(id="heart_for_love", width="100%", height="100%")
+    canvas(id="heart_for_love", width="320", height="320")
     .description(v-if="data")
       .fromWhom {{data.From}}
       .text {{data.Text}}
@@ -44,7 +44,6 @@ export default {
     }
   },
   created() {
-    
     this.$nextTick(() => {
       setTimeout(() => {
         this.toggleFullScreen();
@@ -67,7 +66,7 @@ export default {
             })
             .catch(error => {
               this.$router.push("/error404");
-              // console.log('error: ' + error);
+              console.log('error: ' + error);
             });
         });
       } else {

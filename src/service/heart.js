@@ -25,7 +25,9 @@ const Heart = {
             if (loaded) return;
             loaded = true;
             var mobile = window.isDevice;
-            var koef = mobile ? 0.5 : 1;
+            // хотфикс ебать
+            // var koef = mobile ? 0.5 : 1; 
+            var koef = 1;
             var canvas = document.getElementById(id_canvas);
             var ctx = canvas.getContext('2d');
             var width = canvas.width = koef * innerWidth;
@@ -33,9 +35,10 @@ const Heart = {
             var rand = Math.random;
             ctx.fillStyle = "rgba(0,0,0,1)";
             ctx.fillRect(0, 0, width, height);
+            console.log(width + " - " + height);
 
             var heartPosition = function (rad) {
-                //return [Math.sin(rad), Math.cos(rad)];
+                // return [Math.sin(rad), Math.cos(rad)];
                 return [Math.pow(Math.sin(rad), 3), -(15 * Math.cos(rad) - 5 * Math.cos(2 * rad) - 2 * Math.cos(3 * rad) - Math.cos(4 * rad))];
             };
             var scaleAndTranslate = function (pos, sx, sy, dx, dy) {
@@ -57,7 +60,7 @@ const Heart = {
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, 0));
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, 0));
             var heartPointsCount = pointsOrigin.length;
-
+            
             var targetPoints = [];
             var pulse = function (kx, ky) {
                 for (i = 0; i < pointsOrigin.length; i++) {
