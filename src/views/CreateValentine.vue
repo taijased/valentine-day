@@ -123,8 +123,8 @@ export default {
               const data = {
                 from: this.ruleForm.fromWhom,
                 to: this.ruleForm.forWhom,
-                text: this.ruleForm.email,
-                email: this.ruleForm.message,
+                text: this.ruleForm.message,
+                email: this.ruleForm.email,
                 сonsent: true
               }
               ValentineService.createValentine(data)
@@ -132,7 +132,7 @@ export default {
                   console.log(response);
                   if (response.data.success) {
                     this.disabledBtn = false
-                    // window.location.href = response.data.pay_url;
+                    window.location.href = response.data.pay_url;
                   } else {
                     reject(response)
                   }
