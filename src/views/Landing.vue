@@ -7,7 +7,7 @@
       br
       div {{$t("landing.desc.custom")}}
       div {{$t("landing.desc.text")}}
-      //- div {{$t("landing.desc.music")}}
+      div {{$t("landing.desc.music")}}
       div {{$t("landing.desc.anony")}}
 
     .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
@@ -24,6 +24,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@xs: ~"(max-width: 576px)";
+
 .landing {
   margin-top: -50px;
   width: 500px;
@@ -37,7 +39,10 @@ export default {
   margin-left: 8%;
   -webkit-animation: fade-in-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-
+  @media @xs {
+    margin: 0;
+    align-items: center;
+  }
   h1 {
     font-family: TT Norms Medium;
     font-style: normal;
@@ -48,6 +53,9 @@ export default {
   }
   &__description {
     margin-bottom: 45px;
+    @media @xs {
+      text-align: center;
+    }
     div {
       font-family: TT Norms Regular;
       font-style: normal;
