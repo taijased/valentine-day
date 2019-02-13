@@ -7,7 +7,7 @@
       br
       div {{$t("landing.desc.custom")}}
       div {{$t("landing.desc.text")}}
-      div {{$t("landing.desc.music")}}
+      //- div {{$t("landing.desc.music")}}
       div {{$t("landing.desc.anony")}}
 
     .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
