@@ -4,20 +4,20 @@
       el-form(label-position='left', :model='ruleForm', :rules="rules", status-icon, ref="ruleForm", class="creator-form")
         el-form-item(prop="fromWhom", :class="{'not-empty': ruleForm.fromWhom !== ''}")
           el-input(v-model='ruleForm.fromWhom', autocomplete="off")
-          .label *От кого
+          .label *{{$t("form.fromWhom")}}
         el-form-item(prop="forWhom", :class="{'not-empty': ruleForm.forWhom !== ''}")
           el-input(v-model='ruleForm.forWhom', autocomplete="off")
-          .label *Кому
+          .label *{{$t("form.forWhom")}}
         el-form-item(prop="email", :class="{'not-empty': ruleForm.email !== ''}")
           el-input(v-model='ruleForm.email', autocomplete="off")
           .label *E-mail
         el-form-item(prop="message", :class="{'not-empty': ruleForm.message !== ''}")
           el-input(type="textarea", v-model="ruleForm.message", maxlength="160")
           .label 
-            span Текст поздравления 
+            span {{$t("form.greetingText")}}
             span(v-if="ruleForm.message !== '' && ruleForm.message.length !== 160") {{160 - ruleForm.message.length}}
         el-form-item(prop="checkbox")
-          el-checkbox(v-model='ruleForm.checkbox', fill="#007f48", autocomplete="off", label='Согласен с обработкой персональных данных')
+          el-checkbox(v-model='ruleForm.checkbox', fill="#007f48", autocomplete="off", :label='$t("form.personalData")')
       .btn-primary(@click="submitForm()") {{$t("landing.btn")}}
     .right-bar
      Iphone
@@ -90,10 +90,10 @@ export default {
     return {
       dialogFormVisible: true,
       ruleForm: {
-        forWhom: "Oksana",
-        fromWhom: "Valentine",
-        email: "solo@ya.ru",
-        message: "Please mene zaebal CORS request",
+        forWhom: "",
+        fromWhom: "",
+        email: "",
+        message: "",
         checkbox: false
       },
       rules: {
@@ -160,12 +160,21 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   background: #000;
+  @media @xs {
+    margin: 0;
+    padding: 0;
+  }
   .left-bar {
     height: 100%;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  
+    @media @xs {
+      width: 100%;
+      align-items: center;
+    }
     .creator-form {
       width: 300px;
     }
@@ -224,7 +233,6 @@ export default {
     border-radius: 0px;
     @media @xs {
       margin: 0;
-      width: 90%;
     }
     &:focus,
     &:hover {

@@ -39,8 +39,13 @@ export default {
 
 <style lang="less">
 @import url("../style/devices.min.css");
+@xs: ~"(max-width: 576px)";
+
 .iphone {
   transform: scale(0.75);
+  @media @xs {
+    display: none;
+  }
   .screen {
     background: #000;
     color: #fff;
@@ -51,7 +56,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: auto;
+    overflow: hidden;
     font-size: 26px;
     .description {
       position: absolute;

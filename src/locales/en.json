@@ -19,5 +19,11 @@
   "error404": {
     "subtitle": "Page Not Found",
     "btntitle": "Take me out of here"
+  },
+  "form": {
+    "fromWhom": "From whom",
+    "forWhom": "To whom",
+    "greetingText": "Greetings text",
+    "personalData": "I agree with the processing of personal data"
   }
 }

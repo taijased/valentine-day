@@ -10,6 +10,9 @@ import i18n from './i18n'
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 
+import VueHead from 'vue-head'
+Vue.use(VueHead)
+
 new Vue({
   router,
   store,

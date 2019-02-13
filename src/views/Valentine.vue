@@ -74,6 +74,36 @@ export default {
       }
       
     });
+  },
+  head: {
+    title: {
+      inner: 'It will be a pleasure'
+    },
+    meta: {
+      // Basic meta
+      name: {
+        'application-name': 'Name of my application',
+        description: 'A description of the page',
+        // Twitter
+        'twitter:title': 'Content Title',
+        'twitter:description': 'Content description less than 200 characters',
+        'twitter:image': 'https://example.com/image.jpg'
+      },
+      // Google+ / Schema.org
+      itemprop: {
+        name: 'Content Title',
+        description: 'Content description less than 200 characters',
+        image: 'https://example.com/image.jpg'
+      },
+      // Facebook / Open Graph
+      property: {
+        'fb:app_id': 123456789,
+        'og:url': 'https://example.com/page.html',
+        'og:title': 'Content Title',
+        'og:description': 'Description Here',
+        'og:image': 'https://example.com/image.jpg'
+      }    
+    }
   }
 };
 </script>

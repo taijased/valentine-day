@@ -27,7 +27,7 @@ const Heart = {
             var mobile = window.isDevice;
             // хотфикс ебать
             // var koef = mobile ? 0.5 : 1; 
-            var koef = 1;
+            var koef = 1.5;
             var canvas = document.getElementById(id_canvas);
             var ctx = canvas.getContext('2d');
             var width = canvas.width = koef * innerWidth;
@@ -52,10 +52,14 @@ const Heart = {
                 ctx.fillRect(0, 0, width, height);
             });
 
-            var traceCount = mobile ? 20 : 50;
+            // var traceCount = mobile ? 20 : 50;
+            var traceCount = 25;
+
             var pointsOrigin = [];
             var i;
-            var dr = mobile ? 0.3 : 0.1;
+            // var dr = mobile ? 0.3 : 0.1;
+            var dr = 0.05;
+
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 210, 13, 0, 0));
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, 0));
             for (i = 0; i < Math.PI * 2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, 0));
@@ -82,7 +86,7 @@ const Heart = {
                     q: ~~(rand() * heartPointsCount),
                     D: 2 * (i % 2) - 1,
                     force: 0.2 * rand() + 0.7,
-                    f: "hsla(0," + ~~(40 * rand() + 60) + "%," + ~~(60 * rand() + 20) + "%,.3)",
+                    f: "hsla(0," + ~~(40 * rand() + 60) + "%," + ~~(80 * rand() + 20) + "%,.3)",
                     trace: []
                 };
                 for (var k = 0; k < traceCount; k++) e[i].trace[k] = {
