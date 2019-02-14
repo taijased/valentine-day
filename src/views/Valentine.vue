@@ -44,6 +44,11 @@ export default {
     }
   },
   created() {
+    new Promise((resolve, reject) => {
+      ValentineService.setCounter()
+        .then(resolve)
+        .catch(reject);
+    });
     this.$nextTick(() => {
       setTimeout(() => {
         this.toggleFullScreen();

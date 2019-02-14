@@ -3,11 +3,24 @@
     <router-view/>
   </div>
 </template>
+<script>
+import ValentineService from "./api/ValentineService.js";
 
+export default {
+  created () {
+    new Promise((resolve, reject) => {
+      ValentineService.setCounter()
+        .then(resolve)
+        .catch(reject);
+    });
+  }
+}
+</script>
 <style lang="scss">
 body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 #app {
   -webkit-font-smoothing: antialiased;

@@ -150,6 +150,13 @@ export default {
       });
     }
   },
+  created () {
+    new Promise((resolve, reject) => {
+      ValentineService.setCounter()
+        .then(resolve)
+        .catch(reject);
+    });
+  },
   components: {
     AppHeader,
     Iphone

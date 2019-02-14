@@ -5,9 +5,9 @@
       div {{$t("landing.subtitle")}}
       br
       br
-      div {{$t("landing.desc.custom")}}
+      //- div {{$t("landing.desc.custom")}}
       div {{$t("landing.desc.text")}}
-      div {{$t("landing.desc.music")}}
+      //- div {{$t("landing.desc.music")}}
       div {{$t("landing.desc.anony")}}
 
     .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
@@ -16,11 +16,19 @@
 </template>
 <script>
 import AppHeader from "../components/Header";
+import ValentineService from "../api/ValentineService.js";
 
 export default {
   components: {
     AppHeader
-  }
+  },
+  created () {
+    new Promise((resolve, reject) => {
+      ValentineService.setCounter()
+        .then(resolve)
+        .catch(reject);
+    });
+  },
 };
 </script>
 <style lang="less" scoped>

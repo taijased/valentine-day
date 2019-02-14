@@ -9,6 +9,9 @@ const ValentineService = {
   },
   getValentine (hash) {
     return Api.get('dvc/' + hash)
+  },
+  setCounter () {
+    return Api.post('progrev')
   }
 }
 
