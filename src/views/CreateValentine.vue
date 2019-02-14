@@ -172,7 +172,7 @@ export default {
 .creator {
   width: 100%;
   padding: 0 8%;
-  height: 65%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -189,7 +189,7 @@ export default {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     @media @xs {
       margin-top: 50px;
@@ -202,10 +202,9 @@ export default {
     }
   }
   .right-bar {
-    margin-top: -250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
   }
   .btn-primary {
     background: #9a0f20;

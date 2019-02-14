@@ -93,7 +93,7 @@ export default {
   }
 }
 canvas {
-  width: 400%;
+  width: 300%;
   // margin-left: auto;
   // margin-right: auto;
 }
