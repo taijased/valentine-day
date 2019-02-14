@@ -1,3 +1,4 @@
 export default {
-  mainHeart: true
+  mainHeart: true,
+  valentineCounter: null
 }

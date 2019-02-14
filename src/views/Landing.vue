@@ -9,6 +9,8 @@
       div {{$t("landing.desc.text")}}
       //- div {{$t("landing.desc.music")}}
       div {{$t("landing.desc.anony")}}
+      div.custom(v-if="getValentineCounter") {{$t("landing.counter")}} 
+        div.heartbeat(class="counterheart") &#9829 {{getValentineCounter}}
 
     .btn-primary(@click="$router.push('/create-valentine')") {{$t("landing.btn")}}
     //- .footer {{$t("footer.vk")}}
@@ -17,15 +19,28 @@
 <script>
 import AppHeader from "../components/Header";
 import ValentineService from "../api/ValentineService.js";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
     AppHeader
   },
+  computed: {
+    ...mapGetters({
+      getValentineCounter: "valentine/getValentineCounter",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      setCounterValentine: "valentine/setCounterValentine",
+    }),
+  },
   created () {
     new Promise((resolve, reject) => {
-      ValentineService.setCounter()
-        .then(resolve)
+      ValentineService.getCounterValentine()
+        .then(response => {
+          this.setCounterValentine(response.data.count)
+        })
         .catch(reject);
     });
   },
@@ -138,4 +153,88 @@ export default {
     opacity: 1;
   }
 }
+.custom {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+.counterheart {
+  margin-left: 10px;
+  color: #9a0f20;
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+}
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
 </style>

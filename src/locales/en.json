@@ -11,7 +11,8 @@
       "text": "Add unique text",
       "music": "Add music",
       "anony": "Can you anonymously"
-    }
+    },
+    "counter": "The number of hearts that combined our service"
   },
   "footer": {
     "vk": "VK"
