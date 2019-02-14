@@ -43,7 +43,7 @@ export default {
   height: 100vh;
   grid-template-rows: 15vh 85vh;
   grid-template-columns: 50vw 50vw;
-  // overflow: hidden;
+  overflow-x: hidden;
   background-color: rgba(0, 0, 0, 1);
   z-index: 10;
   header {
