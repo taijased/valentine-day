@@ -1,6 +1,6 @@
 <template lang="pug">
   .wrapper
-    canvas(id="mainheart", :class="{'heart-left': heartPosition}")
+    canvas(id="mainheart", :class="{'heart-left': heartPosition}", v-if="getShowMainHeart")
     header(v-if="heartPosition")
       AppHeader
     main(v-if="heartPosition")
@@ -10,12 +10,18 @@
 <script>
 import AppHeader from "../components/Header";
 import Heart from "../service/heart.js";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
       heartPosition: false
     };
+  },
+  computed: {
+    ...mapGetters({
+      getShowMainHeart: "valentine/getShowMainHeart",
+    }),
   },
   created() {
     this.$nextTick(() => {
@@ -43,9 +49,13 @@ export default {
   height: 100vh;
   grid-template-rows: 15vh 85vh;
   grid-template-columns: 50vw 50vw;
-  overflow-x: hidden;
   background-color: rgba(0, 0, 0, 1);
   z-index: 10;
+  overflow: hidden;
+  @media @xs {
+    overflow: auto;
+    height: auto;
+  }
   header {
     grid-row: 1;
     grid-column: ~"1 / 3";
@@ -60,6 +70,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+
   }
 }
 .fade-enter-active,

@@ -9,7 +9,7 @@ import ValentineService from "./api/ValentineService.js";
 export default {
   created () {
     new Promise((resolve, reject) => {
-      ValentineService.setCounter()
+      ValentineService.uniqueCounter()
         .then(resolve)
         .catch(reject);
     });

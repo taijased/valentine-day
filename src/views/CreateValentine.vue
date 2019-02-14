@@ -112,9 +112,11 @@ export default {
     ...mapActions({
       setFromWhom: "form/setFromWhom",
       setForWhom: "form/setForWhom",
-      setText: "form/setText"
+      setText: "form/setText",
+      showMainHeart: "valentine/showMainHeart",
     }),
     submitForm() {
+
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
           this.disabledBtn = true
@@ -151,6 +153,7 @@ export default {
     }
   },
   created () {
+    this.showMainHeart()
     new Promise((resolve, reject) => {
       ValentineService.setCounter()
         .then(resolve)
@@ -169,27 +172,29 @@ export default {
 .creator {
   width: 100%;
   padding: 0 8%;
-  height: 60%;
+  height: 65%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background: #000;
   @media @xs {
-    margin-top: 250px;
+    margin: 250px 0;
     margin: 0;
     padding: 0;
     height: auto;
     overflow-y: auto;
   }
   .left-bar {
-    height: 100%;
+    height: auto;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     @media @xs {
+      margin-top: 50px;
       width: 100%;
+      height: auto;
       align-items: center;
     }
     .creator-form {

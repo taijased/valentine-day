@@ -42,7 +42,7 @@ export default {
 @xs: ~"(max-width: 576px)";
 
 .iphone {
-  transform: scale(0.75);
+  transform: scale(0.6);
   @media @xs {
     display: none;
   }

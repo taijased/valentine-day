@@ -1,5 +1,3 @@
 export default {
-  forWhom: null,
-  fromWhom: null,
-  text: null
+  mainHeart: true
 }

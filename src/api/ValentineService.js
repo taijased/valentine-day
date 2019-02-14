@@ -12,6 +12,9 @@ const ValentineService = {
   },
   setCounter () {
     return Api.post('progrev')
+  },
+  uniqueCounter () {
+    return Api.get('progrev')
   }
 }
 
