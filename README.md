@@ -1,4 +1,3 @@
-#Valentine Day
 ![](assets/main.png)
 
 ## Live Demo
